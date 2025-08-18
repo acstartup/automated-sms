@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "lib": ["es2015"], /* es2015 grammar types */
+        "module": "commonjs",
+        "outDir": "dist",
+        "sourceMap": true,
+        "strict": true,
+        "target": "es2015"
+    }, /* must seperate general blocks with , aswell*/
+    "include": [
+        "src" /* this is where the system looks for ts code */
+    ]
+}
