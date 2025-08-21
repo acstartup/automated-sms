@@ -5,23 +5,30 @@ potentially you may +1 increment backend name of the bill and increment via size
 incrementing through every single bill to check dayIncrementor at Cron trigger.
 */
 
+// Property Manager Type
+type propertyManager = {
+    company: String;
+    phone: String;
+}
+
+// Tenant Type
+type Tenant = {
+    name: String;
+    property: String;
+    phone: String;
+}
 
 // Bill Type
-/* 
-type bill: Bill {
-    ReleaseNotify = True;
-    RNLog = False;
-    7DayBeforeNotify = False;
-    7DBNLog = False;
-    DayBeforeNotify = False;
-    DBNLog = False;
-    TimeCreated = date.now()
-    DueDate = date set (idk how this works)
-    Bill Type = ""
-
-    PROPERTY MANAGER (USER) INFO? OR USER INFO parent-class of BILL TYPE (FOR CUSTOM ALERTS)
-    TENANT INFO? ALSO NEEDED FOR PERSONALIZED ALERTS
-    heirachy? could = PROPERTY MANAGER (USER) INFO -> TENANT INFO -> BILL INFO
+type Bill = {
+    billType: String;
+    DueDates: number;
+    TimeCreated: number;
+    releaseNotification: boolean;
+    relNotiLog: boolean;
+    weekBeforeNotification: boolean;
+    weeNotiLog: boolean;
+    dayBeforeNotification: boolean;
+    dayNotiLog: boolean;
 }
 
 // Day Incrementor
