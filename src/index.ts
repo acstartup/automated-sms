@@ -31,6 +31,17 @@ type Bill = {
     dayNotiLog: boolean;
 }
 
+/* function dayIncrementor(type: specfiicBill) { // Create a bill for work
+   let tempTime = Date.now() - specificBill.TimeCreated;
+    if tempTime > 7 && 7DBNLog === False:
+        7DayBeforeNotify = True;
+    elif tempTime = DueDate - 1 && DBNLog === False:
+        DayBeforeNotify = True;
+    else
+        void;
+}
+*/
+
 // Day Incrementor
 /* checks for date and if logged, if not just disregards,
 log prevents multi-sending as log === True after sendSMS() after fileLog(). */
