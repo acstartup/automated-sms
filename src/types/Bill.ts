@@ -1,8 +1,8 @@
 // Bill Type
 export type Bill = {
     billType: string;
-    DueDates: number;
-    TimeCreated: number;
+    dayCreated: string;
+    dayDue: string;
     releaseNotification: boolean;
     relNotiLog: boolean;
     weekBeforeNotification: boolean;
