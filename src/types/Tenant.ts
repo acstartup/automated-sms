@@ -1,6 +1,6 @@
 // Tenant Type
 export type Tenant = {
-    name: String;
-    property: String;
-    phone: String;
+    name: string;
+    property: string;
+    phone: string;
 }

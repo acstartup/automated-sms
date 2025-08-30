@@ -1,5 +1,5 @@
 // Property Manager Type
 export type propertyManager = {
-    company: String;
-    phone: String;
+    company: string;
+    phone: string;
 }
