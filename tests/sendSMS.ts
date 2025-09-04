@@ -1,0 +1,44 @@
+// send via ts-node sendSms.ts
+
+import axios from "axios";
+import * as dotenv from "dotenv";
+
+dotenv.config(); // moves .env data for compile file (sendSMS.ts) safety
+
+const apiKey = process.env.INFOBIP_API_KEY!; // process.env. takes info from .env
+const baseUrl = process.env.INFOBIP_BASE_URL!;
+
+async function sendSMS() {
+    try {
+        const response = await axios.post( // axios post is http post
+            '${baseUrl}/sms/2/text/advanced',
+            {
+                messages: [
+                    {
+                        from: "12172108246",
+                        destinations: [{ to: "8568030653"}], // tenant phone number
+                        text: "This is UnitNode." // will become template in the future
+                    }
+                ]
+            },
+            {
+                headers: {
+                    Authorization: 'App ${apiKey}',
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+        
+        console.log("SMS sent successfully:", response.data);
+    }
+        catch (error: any) {
+        if (axios.isAxiosError(error)) {
+            console.error("API Error:", error.response?.data || error.message);
+        } 
+        else {
+            console.error("Unexpected Error:", error);
+        }
+    }
+}
+
+sendSMS();

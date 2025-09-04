@@ -1,0 +1,7 @@
+Send a message
+Connect tenant info & send message
+Connect to daily cron
+Test and send message via daily cron
+Google API
+Test translated message
+Log
