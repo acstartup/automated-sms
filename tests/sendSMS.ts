@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import * as dotenv from "dotenv";
+import { mockPropertyManager, mockTenant, mockWaterBill } from "../src/mocks/mock_user"; // imports objects from mock_user file
 
 dotenv.config({ path: __dirname + "/../.env" , debug: true }); // moves .env data for compile file (sendSMS.ts) safety, debug: true = dynamic debugging
 
@@ -16,7 +17,7 @@ async function sendSMS() {
                 messages: [
                     {
                         from: "+12172108246",
-                        destinations: [{ to: "+18568030653"}], // tenant phone number
+                        destinations: [{ to: mockTenant.phone }], // tenant phone number
                         text: "This is UnitNode.", // will become template in the future
                         smsEncoding: "UNICODE",
                     }
