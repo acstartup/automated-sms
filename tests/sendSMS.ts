@@ -3,7 +3,7 @@
 import axios from "axios";
 import * as dotenv from "dotenv";
 
-dotenv.config(); // moves .env data for compile file (sendSMS.ts) safety
+dotenv.config({ path: __dirname + "/../.env" , debug: true }); // moves .env data for compile file (sendSMS.ts) safety, debug: true = dynamic debugging
 
 const apiKey = process.env.INFOBIP_API_KEY!; // process.env. takes info from .env
 const baseUrl = process.env.INFOBIP_BASE_URL!;
@@ -11,19 +11,20 @@ const baseUrl = process.env.INFOBIP_BASE_URL!;
 async function sendSMS() {
     try {
         const response = await axios.post( // axios post is http post
-            '${baseUrl}/sms/2/text/advanced',
+            `${baseUrl}/sms/2/text/advanced`, // for non-string literals in TS & JS, utilize back-tacks "`" instead of single-quote "'" since TS & JS will interpret "'" as strings
             {
                 messages: [
                     {
-                        from: "12172108246",
-                        destinations: [{ to: "8568030653"}], // tenant phone number
-                        text: "This is UnitNode." // will become template in the future
+                        from: "+12172108246",
+                        destinations: [{ to: "+18568030653"}], // tenant phone number
+                        text: "This is UnitNode.", // will become template in the future
+                        smsEncoding: "UNICODE",
                     }
                 ]
             },
             {
                 headers: {
-                    Authorization: 'App ${apiKey}',
+                    Authorization: `App ${apiKey}`,
                     "Content-Type": "application/json"
                 }
             }
